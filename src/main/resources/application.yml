@@ -1,0 +1,46 @@
+server:
+  port: 8081
+  servlet:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+    context-path: /WechatSDK
+
+spring:
+  application:
+    name: wechat-sdk-demo
+  jmx:
+    default-domain: WechatSDK
+
+# 微信配置：全部通过环境变量注入，仓库中不保存任何真实 appid / secret。
+# 多个小程序：appid 与 secret 都用英文逗号分隔，顺序一一对应。
+wechat:
+  # 小程序
+  appid: ${WECHAT_MINI_APPID:}
+  secret: ${WECHAT_MINI_SECRET:}
+  # 公众号（当前只支持一个）
+  gzhappid: ${WECHAT_MP_APPID:}
+  gzhsecret: ${WECHAT_MP_SECRET:}
+
+forest:
+  # 连接池最大连接数
+  max-connections: 1000
+  # 每个路由的最大连接数
+  max-route-connections: 500
+  # 请求超时时间（毫秒）
+  timeout: 3000
+  # 连接超时时间（毫秒）
+  connect-timeout: 3000
+  # 数据读取超时时间（毫秒）
+  read-timeout: 3000
+  # 请求失败后重试次数
+  max-retry-count: 0
+  # HTTPS 使用的 SSL 协议
+  ssl-protocol: TLSv1.2
+  # Forest 自身日志
+  logEnabled: false
+  log-request: true
+  log-response-status: true
+  # 响应内容可能包含 access_token，默认不打印
+  log-response-content: false
