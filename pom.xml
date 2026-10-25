@@ -58,6 +58,12 @@
             <artifactId>hutool-all</artifactId>
             <version>5.7.21</version>
         </dependency>
+
+        <!-- Forest 在 JDK 11+ 下需要 JAXB API，JDK 8 自带 -->
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
