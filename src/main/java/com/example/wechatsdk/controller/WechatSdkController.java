@@ -118,7 +118,7 @@ public class WechatSdkController {
         String appid = resolveAppId(messageDTO.getWxAppId());
         String url = "https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=" + getAccessToken(appid);
 
-        Map<String, String> result = Forest.post(url)
+        Map<String, Object> result = Forest.post(url)
                 .contentTypeJson()
                 .addBody("touser", messageDTO.getTouser())
                 .addBody("template_id", messageDTO.getTemplateId())
